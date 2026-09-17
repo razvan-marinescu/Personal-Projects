@@ -66,8 +66,9 @@ int recv_from_all_links(char * buf, int *len) {
 	int res;
 	fd_set set;
 
-	FD_ZERO(&set);
 	while (1) {
+		FD_ZERO(&set);
+
 		for (int i = 0; i < ROUTER_NUM_INTERFACES; i++) {
 			FD_SET(interfaces[i], &set);
 		}
